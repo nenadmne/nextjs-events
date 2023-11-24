@@ -28,7 +28,7 @@ export default function EventItem(props) {
         </div>
       </div>
       <div className={classes.actions}>
-        <Button link={`/events/${id}`} />
+        <Button link={`/events/${id}`}> Explore event </Button>
       </div>
     </li>
   );
