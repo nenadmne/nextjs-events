@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 import EventList from "../../components/events/event-list";
 import ResultsTitle from "../../components/results-title/results-title";
+import ErrorAlert from "../../components/error-alert/error-alert";
 import { getFilteredEvents } from "../../dummy-data";
 import Button from "../../components/ui/button";
 
@@ -14,7 +15,9 @@ export default function FilteredEvents() {
   if (!filterData) {
     return (
       <Fragment>
-        <p> Loading... </p>
+        <ErrorAlert>
+          <p> Loading... </p>
+        </ErrorAlert>
         <div className="center">
           <Button link="/events"> Show all events! </Button>
         </div>
@@ -35,7 +38,9 @@ export default function FilteredEvents() {
   ) {
     return (
       <Fragment>
-        <p> Invalid filtered data </p>
+        <ErrorAlert>
+          <p> Invalid filtered data </p>
+        </ErrorAlert>
         <div className="center">
           <Button link="/events"> Show all events! </Button>
         </div>
@@ -51,7 +56,9 @@ export default function FilteredEvents() {
   if (!filteredEvents || filteredEvents.length === 0) {
     return (
       <Fragment>
-        <p> No events found </p>
+        <ErrorAlert>
+          <p> No events found </p>
+        </ErrorAlert>
         <div className="center">
           <Button link="/events"> Show all events! </Button>
         </div>
