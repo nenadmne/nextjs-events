@@ -5,7 +5,6 @@ import { getAllEvents } from "../../dummy-data";
 
 export default function Events({ events }) {
   const router = useRouter();
-
   const searchHandler = (month, year) => {
     const fullPath = `/events/${year}/${month}`;
     router.push(fullPath);

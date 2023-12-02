@@ -31,10 +31,6 @@ const DUMMY_EVENTS = [
   },
 ];
 
-export function getFeaturedEvents() {
-  return DUMMY_EVENTS.filter((event) => event.isFeatured);
-}
-
 export async function getAllEvents() {
   const response = await fetch(
     "https://next-js-events-ceee0-default-rtdb.europe-west1.firebasedatabase.app/events.json"
@@ -56,6 +52,11 @@ export async function getAllEvents() {
   }
 
   return events;
+}
+
+export async function getFeaturedEvents() {
+  const events = await getAllEvents();
+  return events.filter((event) => event.isFeatured);
 }
 
 export function getFilteredEvents(dateFilter) {

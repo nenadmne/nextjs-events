@@ -1,8 +1,12 @@
 import EventItem from "./event-item";
 import classes from "./event-list.module.css";
 
-export default function EventList(props) {
-  const { items } = props;
+export default function EventList({ items }) {
+  if (!items) {
+    return <p> No items found! </p>;
+  }
+
+  console.log(items)
   return (
     <ul className={classes.list}>
       {items.map((event) => (

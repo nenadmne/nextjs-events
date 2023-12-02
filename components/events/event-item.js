@@ -27,7 +27,7 @@ export default function EventItem(props) {
           </div>
           <div className={classes.address}>
             <AdressIcon />
-            <adress>{formattedAdress}</adress>
+            <address>{formattedAdress}</address>
           </div>
         </div>
         <div className={classes.actions}>
