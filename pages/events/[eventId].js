@@ -33,11 +33,12 @@ export async function getStaticProps(context) {
   const { params } = context;
   const events = await getAllEvents();
   const event = events.find((item) => item.id === params.eventId);
-  
+
   return {
     props: {
       event: event,
     },
+    revalidate: 30,
   };
 }
 
