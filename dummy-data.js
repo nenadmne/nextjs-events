@@ -35,8 +35,27 @@ export function getFeaturedEvents() {
   return DUMMY_EVENTS.filter((event) => event.isFeatured);
 }
 
-export function getAllEvents() {
-  return DUMMY_EVENTS;
+export async function getAllEvents() {
+  const response = await fetch(
+    "https://next-js-events-ceee0-default-rtdb.europe-west1.firebasedatabase.app/events.json"
+  );
+  const responseData = await response.json();
+
+  const events = [];
+
+  for (const key in responseData) {
+    events.push({
+      id: key,
+      title: responseData[key].title,
+      description: responseData[key].description,
+      location: responseData[key].location,
+      date: responseData[key].date,
+      image: responseData[key].image,
+      isFeatured: responseData[key].isFeatured,
+    });
+  }
+
+  return events;
 }
 
 export function getFilteredEvents(dateFilter) {
