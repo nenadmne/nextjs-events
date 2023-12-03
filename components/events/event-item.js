@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "../ui/button";
 import DateIcon from "../icons/date-icon";
 import AdressIcon from "../icons/address-icon";
@@ -17,7 +18,7 @@ export default function EventItem(props) {
 
   return (
     <li className={classes.item}>
-      <img src={`/${image}`} />
+      <Image src={`/${image}`} alt={title} width={250} height={160} />
       <div className={classes.content}>
         <div className={classes.summary}>
           <h2>{title}</h2>
@@ -32,7 +33,7 @@ export default function EventItem(props) {
         </div>
         <div className={classes.actions}>
           <Button link={`/events/${id}`}>
-            <span>Explore event</span>{" "}
+            <span>Explore event</span>
             <span className={classes.icon}>
               <ArrowRightIcon />
             </span>
