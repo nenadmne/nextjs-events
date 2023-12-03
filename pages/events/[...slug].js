@@ -1,9 +1,10 @@
 import { Fragment } from "react";
+import Head from "next/head";
 
 import EventList from "../../components/events/event-list";
 import ResultsTitle from "../../components/results-title/results-title";
 import ErrorAlert from "../../components/error-alert/error-alert";
-import { getAllEvents, getFilteredEvents } from "../../dummy-data";
+import { getFilteredEvents } from "../../dummy-data";
 import Button from "../../components/ui/button";
 
 export default function FilteredEvents({ hasError, filteredEvents, date }) {
@@ -49,6 +50,13 @@ export default function FilteredEvents({ hasError, filteredEvents, date }) {
   const newDate = new Date(date.year, date.month - 1);
   return (
     <Fragment>
+      <Head>
+        <title>Filtered Events </title>
+        <meta
+          name="description"
+          content={`All events filtered for ${year} and ${month}`}
+        />
+      </Head>
       <ResultsTitle date={newDate} />
       <EventList items={filteredEvents} />
     </Fragment>
